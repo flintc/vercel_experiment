@@ -25,19 +25,19 @@ export const useUser = () => {
         userId: userId,
       },
     });
-    return out.data.user?.name;
+    return out.data.user;
   };
   const query = useQuery(["user", userId], queryFn, {
     staleTime: 1000 * 60 * 60 * 60,
-    select: (data) => {
-      return {
-        foo: data,
-      };
-    },
+    // select: (data) => {
+    //   return {
+    //     foo: data,
+    //   };
+    // },
     // select: transformData,
   });
-  if (query.data) {
-    const bar = query.data.foo;
-  }
+  // if (query.data) {
+  //   const bar = query.data.foo;
+  // }
   return query;
 };

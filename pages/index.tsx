@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useUser } from "../entities/user/useUser";
 import { BrowseMovies } from "../features/browse-movies";
 import {
   ResultsComponent,
@@ -12,11 +13,11 @@ const ResultsComponentFoo: ResultsComponent = ({ searchMultiQuery }) => {
   }
   const results = searchMultiQuery?.data?.pages.map((x) => x.results).flat();
   return (
-    <ul className="space-y-2 max-w-lg m-auto mt-4">
+    <ul className="max-w-lg m-auto mt-4 space-y-2">
       {results?.map((result) => {
         return (
           <li
-            className="rounded p-10 bg-indigo-800 text-white"
+            className="p-10 text-white bg-indigo-800 rounded"
             key={result?.id}
           >
             {result?.media_type === "movie"
@@ -49,8 +50,29 @@ const useRouterState = () => {
 
 function Home() {
   const [state, setState] = useRouterState({});
+  const user = useUser();
   return (
     <div>
+      <button
+        onClick={() => {
+          console.log("user.data selectQuestion", user.data);
+          if (user.data?.room) {
+            fetch(`/api/selectQuestion/?roomId=${user.data.room.id}`);
+          }
+        }}
+      >
+        Test
+      </button>
+      <button
+        onClick={() => {
+          console.log("user.data", user.data);
+          if (user.data) {
+            fetch(`/api/createRoom/?userId=${user.data.id}`);
+          }
+        }}
+      >
+        Create Room
+      </button>
       <SearchMulti
         state={state}
         setState={setState}
