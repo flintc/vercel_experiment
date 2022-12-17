@@ -43,4 +43,9 @@ prisma
 openapitools.json
 docker-cmd
 tmdb-spec
+
 generated
+
+gql-codegen.ts.tmp
+generated/openapi-not-ideal
+generated/openapi-tmdb
