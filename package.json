@@ -3,18 +3,43 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "compile": "graphql-codegen",
+    "watch": "graphql-codegen -w",
+    "gen-tmdb-types": "openapi-generator-cli generate -i ./tmdb_spec.json -g typescript-axios -o generated/openapi",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.1",
+    "@apollo/react-hooks": "^4.0.0",
+    "@auth0/auth0-react": "^1.12.0",
+    "@mantine/hooks": "^5.8.3",
+    "@mui/base": "^5.0.0-alpha.107",
+    "@react-aria/utils": "^3.14.1",
+    "@tanstack/react-query": "^4.16.1",
+    "@types/lodash": "^4.14.190",
+    "framer-motion": "^7.6.9",
+    "graphql": "^16.6.0",
+    "graphql-ws": "^5.11.2",
     "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.13.12",
+    "@graphql-codegen/client-preset": "1.1.5",
+    "@graphql-codegen/introspection": "2.2.1",
+    "@openapitools/openapi-generator-cli": "^2.5.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/react": "18.0.25",
+    "autoprefixer": "^10.4.13",
+    "dotenv": "^16.0.3",
     "eslint": "8.28.0",
-    "eslint-config-next": "13.0.4"
+    "eslint-config-next": "13.0.4",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.3"
   }
 }
