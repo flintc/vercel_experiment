@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/backend-postgres"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model question {
+  id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at  DateTime   @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime   @default(now()) @db.Timestamptz(6)
+  name        String
+  answer      Json?      @db.Json
+  imageUrl    String?
+  description String?
+  room_id     String?    @db.Uuid
+  round       Int
+  room        room?      @relation(fields: [room_id], references: [id], onDelete: Cascade)
+  response    response[]
+
+  @@unique([room_id, round])
+}
+
+model response {
+  value       Int
+  owner_id    String
+  question_id String   @db.Uuid
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  updated_at  DateTime @default(now()) @db.Timestamptz(6)
+  user        user     @relation(fields: [owner_id], references: [id], onDelete: Cascade)
+  question    question @relation(fields: [question_id], references: [id], onDelete: Cascade)
+
+  @@unique([question_id, owner_id])
+}
+
+model room {
+  id         String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at DateTime    @default(now()) @db.Timestamptz(6)
+  updated_at DateTime    @default(now()) @db.Timestamptz(6)
+  name       String      @unique
+  state      String?     @default("starting")
+  round      Int?        @default(0)
+  question   question[]
+  user       user[]
+  userStats  room_user[]
+}
+
+model user {
+  created_at DateTime   @default(now()) @db.Timestamptz(6)
+  updated_at DateTime   @default(now()) @db.Timestamptz(6)
+  name       String
+  room_id    String?    @db.Uuid
+  last_seen  DateTime?  @db.Timestamptz(6)
+  id         String     @id
+  starred    Json       @default(dbgenerated("jsonb_build_object()"))
+  response   response[]
+  room       room?      @relation(fields: [room_id], references: [id], onUpdate: SetNull)
+}
+
+model room_user {
+  ranking   Int?
+  score     Int?
+  user_id   String
+  user_name String
+  room      room   @relation(fields: [room_id], references: [id])
+  room_id   String @db.Uuid
+
+  @@unique([room_id, user_id])
+}
