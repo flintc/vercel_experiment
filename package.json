@@ -5,6 +5,7 @@
   "scripts": {
     "compile": "graphql-codegen",
     "watch": "graphql-codegen -w",
+    "prebuild": "./prebuild.sh",
     "gen-tmdb-types": "openapi-generator-cli generate -i ./tmdb_spec.json -g typescript-axios -o generated/openapi",
     "dev": "next dev",
     "build": "next build",
