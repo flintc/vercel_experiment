@@ -3037,7 +3037,8 @@
                         "type": "integer"
                       },
                       "iso_639_1": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "vote_average": {
                         "type": "integer"
@@ -3066,7 +3067,8 @@
                         "type": "integer"
                       },
                       "iso_639_1": {
-                        "type": ["string", "null"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "vote_average": {
                         "type": "integer"
@@ -5510,7 +5512,8 @@
                         "type": "string"
                       },
                       "poster_path": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       }
                     }
                   }
@@ -5869,7 +5872,8 @@
                   "type": "string"
                 },
                 "parent_company": {
-                  "type": ["null", "object"]
+                  "type": "object",
+                  "x-nullable": true
                 }
               }
             },
@@ -8047,16 +8051,20 @@
               "type": "object",
               "properties": {
                 "imdb_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "facebook_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "instagram_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "twitter_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "id": {
                   "type": "integer"
@@ -11457,7 +11465,8 @@
                   "type": "integer"
                 },
                 "production_code": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "season_number": {
                   "type": "integer"
@@ -11723,7 +11732,8 @@
                         "type": "string"
                       },
                       "production_code": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "season_number": {
                         "type": "integer"
@@ -13080,7 +13090,8 @@
                         "type": "integer"
                       },
                       "iso_639_1": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "vote_average": {
                         "type": "number"
@@ -13112,7 +13123,8 @@
                         "type": "integer"
                       },
                       "iso_639_1": {
-                        "type": ["string", "null"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "vote_average": {
                         "type": "number"
@@ -17531,13 +17543,15 @@
               "type": "object",
               "properties": {
                 "birthday": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "known_for_department": {
                   "type": "string"
                 },
                 "deathday": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "id": {
                   "type": "integer"
@@ -17564,7 +17578,8 @@
                   "type": "number"
                 },
                 "place_of_birth": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "profile_path": {
                   "$ref": "#/definitions/image-path"
@@ -17576,7 +17591,8 @@
                   "type": "string"
                 },
                 "homepage": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 }
               }
             },
@@ -19786,7 +19802,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -19827,7 +19844,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -20978,7 +20996,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -21019,7 +21038,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -21631,7 +21651,8 @@
                               "type": "string"
                             },
                             "adult": {
-                              "type": ["boolean", "null"]
+                              "type": "boolean",
+                              "x-nullable": true
                             },
                             "gender": {
                               "type": "integer"
@@ -21675,7 +21696,8 @@
                               "type": "boolean"
                             },
                             "gender": {
-                              "type": ["integer", "null"]
+                              "type": "integer",
+                              "x-nullable": true
                             },
                             "id": {
                               "type": "integer"
@@ -26693,16 +26715,20 @@
               "type": "object",
               "properties": {
                 "freebase_mid": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "freebase_id": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "tvdb_id": {
-                  "type": ["integer", "null"]
+                  "type": "integer",
+                  "x-nullable": true
                 },
                 "tvrage_id": {
-                  "type": ["null", "integer"]
+                  "type": "integer",
+                  "x-nullable": true
                 },
                 "id": {
                   "type": "integer"
@@ -27052,7 +27078,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -27096,7 +27123,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -30230,7 +30258,8 @@
                         "type": "integer"
                       },
                       "adult": {
-                        "type": ["boolean", "null"]
+                        "type": "boolean",
+                        "x-nullable": true
                       }
                     }
                   }
@@ -31988,7 +32017,8 @@
                         "type": "integer"
                       },
                       "iso_639_1": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "vote_average": {
                         "type": ["integer", "number"]
@@ -32151,7 +32181,8 @@
                             "$ref": "#/definitions/image-path"
                           },
                           "rating": {
-                            "type": ["integer", "null"]
+                            "type": "integer",
+                            "x-nullable": true
                           }
                         }
                       },
@@ -32274,7 +32305,8 @@
                   "$ref": "#/definitions/image-path"
                 },
                 "belongs_to_collection": {
-                  "type": ["null", "object"]
+                  "type": "object",
+                  "x-nullable": true
                 },
                 "budget": {
                   "type": "integer"
@@ -32294,13 +32326,15 @@
                   }
                 },
                 "homepage": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "id": {
                   "type": "integer"
                 },
                 "imdb_id": {
-                  "type": ["string", "null"],
+                  "type": "string",
+                  "x-nullable": true,
                   "minLength": 9,
                   "maxLength": 9,
                   "pattern": "^tt[0-9]{7}"
@@ -32312,7 +32346,8 @@
                   "type": "string"
                 },
                 "overview": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "popularity": {
                   "type": "number"
@@ -32332,7 +32367,8 @@
                         "type": "integer"
                       },
                       "logo_path": {
-                        "type": ["string", "null"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "origin_country": {
                         "type": "string"
@@ -32362,7 +32398,8 @@
                   "type": "integer"
                 },
                 "runtime": {
-                  "type": ["integer", "null"]
+                  "type": "integer",
+                  "x-nullable": true
                 },
                 "spoken_languages": {
                   "type": "array",
@@ -32390,7 +32427,8 @@
                   ]
                 },
                 "tagline": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "title": {
                   "type": "string"
@@ -32882,7 +32920,8 @@
                         "type": "string"
                       },
                       "network": {
-                        "type": ["null", "object"],
+                        "type": "object",
+                        "x-nullable": true,
                         "properties": {
                           "id": {
                             "type": "integer"
@@ -33956,7 +33995,8 @@
                         "type": "integer"
                       },
                       "adult": {
-                        "type": ["boolean", "null"]
+                        "type": "boolean",
+                        "x-nullable": true
                       }
                     }
                   }
@@ -34494,7 +34534,8 @@
                         "type": "string"
                       },
                       "iso_639_1": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "vote_average": {
                         "type": "number"
@@ -39215,7 +39256,8 @@
                         "type": "integer"
                       },
                       "adult": {
-                        "type": ["boolean", "null"]
+                        "type": "boolean",
+                        "x-nullable": true
                       }
                     }
                   }
@@ -40202,7 +40244,8 @@
                         "type": "integer"
                       },
                       "logo_path": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "name": {
                         "type": "string"
@@ -42761,7 +42804,8 @@
                   "type": "string"
                 },
                 "overview": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "popularity": {
                   "type": "integer"
@@ -43755,7 +43799,8 @@
                         "type": "integer"
                       },
                       "logo_path": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "name": {
                         "type": "string"
@@ -44562,7 +44607,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -44617,7 +44663,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -49040,28 +49087,36 @@
               "type": "object",
               "properties": {
                 "imdb_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "freebase_mid": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "freebase_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "tvdb_id": {
-                  "type": ["integer", "null"]
+                  "type": "integer",
+                  "x-nullable": true
                 },
                 "tvrage_id": {
-                  "type": ["integer", "null"]
+                  "type": "integer",
+                  "x-nullable": true
                 },
                 "facebook_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "instagram_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "twitter_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "id": {
                   "type": "integer"
@@ -50100,31 +50155,37 @@
                   }
                 },
                 "biography": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "birthday": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "deathday": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "gender": {
                   "type": "integer"
                 },
                 "homepage": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "id": {
                   "type": "integer"
                 },
                 "imdb_id": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "name": {
                   "type": "string"
                 },
                 "place_of_birth": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "popularity": {
                   "type": "number"
@@ -54714,7 +54775,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -54764,7 +54826,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -54805,7 +54868,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -56319,7 +56383,8 @@
                         "type": "string"
                       },
                       "production_code": {
-                        "type": ["null", "string"]
+                        "type": "string",
+                        "x-nullable": true
                       },
                       "season_number": {
                         "type": "integer"
@@ -56746,7 +56811,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -56801,7 +56867,8 @@
                         "type": "boolean"
                       },
                       "gender": {
-                        "type": ["integer", "null"]
+                        "type": "integer",
+                        "x-nullable": true
                       },
                       "id": {
                         "type": "integer"
@@ -68739,19 +68806,24 @@
               "type": "object",
               "properties": {
                 "imdb_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "freebase_mid": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "freebase_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "tvdb_id": {
-                  "type": ["integer", "null"]
+                  "type": "integer",
+                  "x-nullable": true
                 },
                 "tvrage_id": {
-                  "type": ["integer", "null"]
+                  "type": "integer",
+                  "x-nullable": true
                 },
                 "id": {
                   "type": "integer"
@@ -74597,28 +74669,35 @@
               "type": "object",
               "properties": {
                 "imdb_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "facebook_id": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "freebase_mid": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "freebase_id": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "tvrage_id": {
-                  "type": ["integer", "null"]
+                  "type": "integer",
+                  "x-nullable": true
                 },
                 "twitter_id": {
-                  "type": ["null", "string"]
+                  "type": "string",
+                  "x-nullable": true
                 },
                 "id": {
                   "type": "integer"
                 },
                 "instagram_id": {
-                  "type": ["string", "null"]
+                  "type": "string",
+                  "x-nullable": true
                 }
               },
               "required": ["id"]
