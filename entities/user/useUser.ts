@@ -16,6 +16,7 @@ const transformData = (data: any) => {
 export const useUser = () => {
   const { user } = useAuth0();
   const userId = user?.sub;
+  console.log("useUser userId", userId);
   const client = useApolloClient();
   const queryFn = async () => {
     const out = await client.query({
@@ -28,6 +29,7 @@ export const useUser = () => {
   };
   const query = useQuery(["user", userId], queryFn, {
     staleTime: 1000 * 60 * 60 * 60,
+    enabled: userId !== undefined || userId != null,
     // select: (data) => {
     //   return {
     //     foo: data,
