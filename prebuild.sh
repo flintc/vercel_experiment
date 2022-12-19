@@ -7,3 +7,5 @@ docker run --rm -v "${PWD}:/local" openapitools/openapi-generator-cli generate \
 
 cp ./generated/openapi-tmdb/models/__edited__GETSearchMulti200Response.ts ./generated/openapi-tmdb/models/GETSearchMulti200Response.ts
 cp ./generated/openapi-tmdb/models/__edited__GETTvTvIdSeasonSeasonNumber200Response.ts ./generated/openapi-tmdb/models/GETTvTvIdSeasonSeasonNumber200Response.ts
+
+npx prisma generate
