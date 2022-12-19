@@ -15,4 +15,4 @@ rm -rf generated/openapi-tmdb/
 mv openapi-tmdb generated/
 rm file.zip
 
-npx prisma generate
+npx --yes prisma generate
