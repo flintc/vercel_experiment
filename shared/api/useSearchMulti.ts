@@ -1,7 +1,7 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { searchMulti } from ".";
 import _ from "lodash";
-import { GETSearchMulti200Response } from "../../generated/openapi";
+import { GETSearchMulti200Response } from "../../generated/openapi-tmdb";
 
 export const useSearchMulti = (params: {
   search: string;
@@ -41,7 +41,7 @@ export const useSearchMultiInfinite = (params: {
     },
     {
       getNextPageParam: (lastPage, pages) => {
-        return lastPage.total_pages === lastPage.page ||
+        return lastPage.totalPages === lastPage.page ||
           lastPage.page === undefined
           ? null
           : lastPage.page + 1;

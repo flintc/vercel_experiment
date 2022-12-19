@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const client = new PrismaClient();
+import { PrismaClient } from "./generated/backend-postgres";
+const client = new PrismaClient({});
 
 export default client;

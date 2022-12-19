@@ -15,18 +15,19 @@ const ResultsComponentFoo: ResultsComponent = ({ searchMultiQuery }) => {
   return (
     <ul className="max-w-lg m-auto mt-4 space-y-2">
       {results?.map((result) => {
+        console.log("result", result);
         return (
           <li
             className="p-10 text-white bg-indigo-800 rounded"
             key={result?.id}
           >
-            {result?.media_type === "movie"
+            {result?.mediaType === "movie"
               ? result.title
-              : result?.media_type === "tv"
+              : result?.mediaType === "tv"
               ? result.name
-              : result?.media_type === "person"
+              : result?.mediaType === "person"
               ? result.name
-              : result}
+              : "foo"}
           </li>
         );
       })}
@@ -49,16 +50,17 @@ const useRouterState = () => {
 };
 
 function Home() {
-  const [state, setState] = useRouterState({});
+  const [state, setState] = useRouterState();
   const user = useUser();
   return (
     <div>
       <button
         onClick={() => {
           console.log("user.data selectQuestion", user.data);
-          if (user.data?.room) {
-            fetch(`/api/selectQuestion/?roomId=${user.data.room.id}`);
-          }
+          // if (user.data?.room) {
+          //   fetch(`/api/selectQuestion/?roomId=${user.data.room.id}`);
+          // }
+          fetch(`/api/selectQuestion/?roomId=AAA`);
         }}
       >
         Test
@@ -83,5 +85,4 @@ function Home() {
   );
 }
 
-// export default withApollo()(Home);
 export default Home;

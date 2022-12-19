@@ -1,6 +1,7 @@
-import { graphql } from "../../generated/gql";
+import { gql } from "@apollo/client";
+// import { graphql } from "../../generated/gql";
 
-export const GET_USER = graphql(`
+export const GET_USER = gql`
   query User($userId: String!) {
     user: user_by_pk(id: $userId) {
       id
@@ -13,9 +14,9 @@ export const GET_USER = graphql(`
       }
     }
   }
-`);
+`;
 
-export const USER_STARRED = graphql(`
+export const USER_STARRED = gql`
   query UserStarred($userId: String!) {
     user: user_by_pk(id: $userId) {
       id
@@ -23,9 +24,9 @@ export const USER_STARRED = graphql(`
       starred
     }
   }
-`);
+`;
 
-export const SUBSCRIBE_TO_USER = graphql(`
+export const SUBSCRIBE_TO_USER = gql`
   subscription UserSubscription($userId: String!) {
     user: user_by_pk(id: $userId) {
       id
@@ -57,9 +58,9 @@ export const SUBSCRIBE_TO_USER = graphql(`
       }
     }
   }
-`);
+`;
 
-export const ADD_STAR = graphql(`
+export const ADD_STAR = gql`
   mutation UserAddStar($userId: String!, $mediaId: jsonb) {
     update_user(
       where: { id: { _eq: $userId } }
@@ -72,9 +73,9 @@ export const ADD_STAR = graphql(`
       }
     }
   }
-`);
+`;
 
-export const REMOVE_STAR = graphql(`
+export const REMOVE_STAR = gql`
   mutation UserRemoveStar($userId: String!, $mediaId: String) {
     update_user(
       where: { id: { _eq: $userId } }
@@ -87,4 +88,4 @@ export const REMOVE_STAR = graphql(`
       }
     }
   }
-`);
+`;

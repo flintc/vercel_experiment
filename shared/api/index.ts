@@ -1,7 +1,7 @@
 import {
   GETMoviePopular200Response,
   GETSearchMulti200Response,
-} from "../../generated/openapi/api";
+} from "../../generated/openapi-tmdb";
 import axios from "axios";
 import * as documents from "../../document";
 import { useApolloClient } from "@apollo/client";

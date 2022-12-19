@@ -1,15 +1,17 @@
-import { graphql } from "./generated/gql";
+// import { graphql } from "./generated/gql";
 
-export const GET_ROOM = graphql(`
+import { gql } from "@apollo/client";
+
+export const GET_ROOM = gql`
   query Room($roomName: String!) {
     room(where: { name: { _eq: $roomName } }) {
       state
       round
     }
   }
-`);
+`;
 
-export const GET_USER = graphql(`
+export const GET_USER = gql`
   query User($userId: String!) {
     user: user_by_pk(id: $userId) {
       id
@@ -22,13 +24,13 @@ export const GET_USER = graphql(`
       }
     }
   }
-`);
+`;
 
-export const GET_ROOM_2 = graphql(
-  "\n  query Room($roomName: String!) {\n    room(where: { name: { _eq: $roomName } }) {\n      state\n      round\n    }\n  }\n"
-);
+// export const GET_ROOM_2 = gql
+//   "\n  query Room($roomName: String!) {\n    room(where: { name: { _eq: $roomName } }) {\n      state\n      round\n    }\n  }\n"
+// );
 
-export const USER_STARRED = graphql(`
+export const USER_STARRED = gql`
   query UserStarred($userId: String!) {
     user: user_by_pk(id: $userId) {
       id
@@ -36,9 +38,9 @@ export const USER_STARRED = graphql(`
       starred
     }
   }
-`);
+`;
 
-export const ADD_STAR = graphql(`
+export const ADD_STAR = `
   mutation UserAddStar($userId: String!, $mediaId: jsonb) {
     update_user(
       where: { id: { _eq: $userId } }
@@ -51,13 +53,13 @@ export const ADD_STAR = graphql(`
       }
     }
   }
-`);
+`;
 
-export const Foo = graphql(
-  "\n  subscription UserSubscription($userId: String!) {\n    user: user_by_pk(id: $userId) {\n      id\n      name\n      starred\n      room {\n        state\n        id\n        name\n        round\n        users {\n          id\n          name\n        }\n        questions(order_by: { created_at: asc_nulls_last }) {\n          id\n          name\n          questionId\n          description\n          answer\n          responses(order_by: { created_at: desc_nulls_last }) {\n            value\n            owner {\n              id\n              name\n            }\n          }\n        }\n      }\n    }\n  }\n"
-);
+// export const Foo = graphql(
+//   "\n  subscription UserSubscription($userId: String!) {\n    user: user_by_pk(id: $userId) {\n      id\n      name\n      starred\n      room {\n        state\n        id\n        name\n        round\n        users {\n          id\n          name\n        }\n        questions(order_by: { created_at: asc_nulls_last }) {\n          id\n          name\n          questionId\n          description\n          answer\n          responses(order_by: { created_at: desc_nulls_last }) {\n            value\n            owner {\n              id\n              name\n            }\n          }\n        }\n      }\n    }\n  }\n"
+// );
 
-export const SUBSCRIBE_TO_USER = graphql(`
+export const SUBSCRIBE_TO_USER = gql`
   subscription UserSubscription($userId: String!) {
     user: user_by_pk(id: $userId) {
       id
@@ -89,9 +91,9 @@ export const SUBSCRIBE_TO_USER = graphql(`
       }
     }
   }
-`);
+`;
 
-export const SUBMIT_ANSWER = graphql(`
+export const SUBMIT_ANSWER = gql`
   mutation SubmitAnswer(
     $questionId: uuid!
     $ownerId: String!
@@ -114,9 +116,9 @@ export const SUBMIT_ANSWER = graphql(`
       }
     }
   }
-`);
+`;
 
-export const START_GAME = graphql(`
+export const START_GAME = gql`
   mutation StartGame($roomName: String!) {
     update_room(
       where: { name: { _eq: $roomName } }
@@ -125,4 +127,4 @@ export const START_GAME = graphql(`
       affected_rows
     }
   }
-`);
+`;

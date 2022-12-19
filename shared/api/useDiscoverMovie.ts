@@ -2,7 +2,7 @@ import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { discoverMovie } from ".";
 import _ from "lodash";
 import { DiscoverMovieParams } from "../../pages/api/tmdb/discoverMovie";
-import { GETMoviePopular200Response } from "../../generated/openapi";
+import { GETMoviePopular200Response } from "../../generated/openapi-tmdb";
 
 export const useDiscoverMovie = (params: DiscoverMovieParams) => {
   const query = useQuery(
@@ -46,7 +46,7 @@ export const useDiscoverMovieInfinite = (params: DiscoverMovieParams) => {
       return resp.data;
     },
     getNextPageParam: (lastPage) => {
-      return lastPage.total_pages === lastPage.page ||
+      return lastPage.totalPages === lastPage.page ||
         lastPage.page === undefined
         ? null
         : lastPage.page + 1;

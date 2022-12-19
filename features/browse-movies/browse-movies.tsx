@@ -37,9 +37,10 @@ export const BrowseMovies = () => {
   const router = useRouter();
   const queryClient = useQueryClient();
   const { query, loadMoreButton } = useBrowseMovies(router.query);
+
   return query.status === "success" ? (
     <>
-      <ul className="space-y-2 mt-4 m-auto max-w-lg">
+      <ul className="max-w-lg m-auto mt-4 space-y-2">
         {query.data.pages
           .map((page) => page.results)
           .flat()
@@ -53,11 +54,11 @@ export const BrowseMovies = () => {
               <li
                 // layout
                 // layoutId={`movie_${result.id}`}
-                className="p-10 bg-pink-800 rounded relative overflow-hidden"
+                className="relative p-10 overflow-hidden bg-pink-800 rounded"
                 key={result?.id}
               >
                 <button
-                  className="bg-red-800 absolute inset-0"
+                  className="absolute inset-0 bg-red-800"
                   onClick={() => {
                     router.push(
                       {

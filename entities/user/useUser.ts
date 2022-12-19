@@ -2,9 +2,9 @@ import { useApolloClient, useQuery as useApolloQuery } from "@apollo/client";
 import { useQuery } from "@tanstack/react-query";
 import * as documents from "./user.documents";
 import { useAuth0 } from "@auth0/auth0-react";
-import { UserQuery } from "../../generated/gql/graphql";
+// import { UserQuery } from "../../generated/gql/graphql";
 
-const transformData = (data: UserQuery["user"]) => {
+const transformData = (data: any) => {
   if (!data) {
     return data;
   }
