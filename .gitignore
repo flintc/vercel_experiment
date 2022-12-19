@@ -46,6 +46,9 @@ tmdb-spec
 
 
 gql-codegen.ts.tmp
-generated/openapi-not-ideal
-generated/backend-postgres
-generated
+generated/*
+!generated/openapi-tmdb
+generated/openapi-tmdb/*
+!generated/openapi-tmdb/models/
+generated/openapi-tmdb/models/*
+!generated/openapi-tmdb/models/__edited__*
