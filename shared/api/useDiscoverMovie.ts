@@ -7,7 +7,7 @@ import { GETMoviePopular200Response } from "../../generated/openapi-tmdb";
 export const useDiscoverMovie = (params: DiscoverMovieParams) => {
   const query = useQuery(
     ["discoverMovie", params],
-    async ({ queryKey }) => {
+    async () => {
       const resp = await discoverMovie(params);
       return resp.data;
     },
@@ -53,7 +53,7 @@ export const useDiscoverMovieInfinite = (params: DiscoverMovieParams) => {
     },
     staleTime: 10000 * 60 * 1000,
     keepPreviousData: true,
-    enabled: !_.isEmpty(params) && params?.id === undefined,
+    enabled: !_.isEmpty(params),
   });
   return result;
 };

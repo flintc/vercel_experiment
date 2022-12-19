@@ -3,14 +3,10 @@ import { searchMulti } from ".";
 import _ from "lodash";
 import { GETSearchMulti200Response } from "../../generated/openapi-tmdb";
 
-export const useSearchMulti = (params: {
-  search: string;
-  page: number | undefined;
-}) => {
+export const useSearchMulti = (params: { search: string; page?: number }) => {
   const query = useQuery(
     ["searchMulti", params],
-    async ({ queryKey }) => {
-      const [, params] = queryKey;
+    async () => {
       const resp = await searchMulti(params);
       return resp.data;
     },
@@ -29,14 +25,18 @@ export const useSearchMulti = (params: {
 export type SearchMultiData = GETSearchMulti200Response;
 
 export const useSearchMultiInfinite = (params: {
-  search: string;
-  page: number | undefined;
+  search?: string;
+  page?: number;
 }) => {
   const query = useInfiniteQuery(
     ["searchMulti", params],
     async ({ queryKey, pageParam }) => {
       const [, params] = queryKey as [string, object];
-      const resp = await searchMulti({ ...params, page: pageParam });
+      const args = {
+        ...params,
+        page: pageParam,
+      } as { search: string; page?: number };
+      const resp = await searchMulti(args);
       return resp.data;
     },
     {

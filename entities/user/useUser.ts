@@ -14,9 +14,8 @@ const transformData = (data: any) => {
 };
 
 export const useUser = () => {
-  const {
-    user: { sub: userId },
-  } = useAuth0();
+  const { user } = useAuth0();
+  const userId = user?.sub;
   const client = useApolloClient();
   const queryFn = async () => {
     const out = await client.query({

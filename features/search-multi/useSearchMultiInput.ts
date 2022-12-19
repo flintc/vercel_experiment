@@ -1,12 +1,16 @@
 import { useDebouncedValue, useDebouncedState } from "@mantine/hooks";
 import _ from "lodash";
+import React from "react";
 import {
   SearchMultiData,
   useSearchMultiInfinite,
 } from "../../shared/api/useSearchMulti";
 import { useInfinteScroll } from "../../shared/useInfiniteScroll";
 
-export const useSearchMultiInput = (state, setState) => {
+export const useSearchMultiInput = (
+  state: { search?: string; page?: number },
+  setState: (newState: { search?: string; page?: number }) => void
+) => {
   const [debounced] = useDebouncedValue(state, 300);
   // const [debounced, setDebounced] = useDebouncedState(state, 300);
   const searchMultiQuery = useSearchMultiInfinite(debounced);
@@ -39,7 +43,7 @@ export const useSearchMultiInput = (state, setState) => {
       //   (input.input.selectionStart = input.input.selectionEnd = this.cursor),
 
       value: state.search || "",
-      onChange: (event) => {
+      onChange: (event: React.FormEvent<HTMLInputElement>) => {
         event.preventDefault();
         setState({ search: event.currentTarget.value });
         // setDebounced({ search: event.currentTarget.value });

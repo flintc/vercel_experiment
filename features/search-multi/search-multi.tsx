@@ -46,7 +46,7 @@ const SearchMultiControlled = ({
       <motion.div
         layoutId="foo"
         layout
-        className="flex gap-2 px-1 flex-nowrap max-w-lg m-auto"
+        className="flex max-w-lg gap-2 px-1 m-auto flex-nowrap"
       >
         <input
           className="w-full rounded bg-zinc-800 placeholder-zinc-400"
@@ -76,7 +76,7 @@ const SearchMultiControlled = ({
 
 export const SearchMulti = (props: ControlledProps | UncontolledProps) => {
   if ("setState" in props || "state" in props) {
-    return <SearchMultiControlled {...props} />;
+    return <SearchMultiControlled {...(props as ControlledProps)} />;
   } else {
     return <SearchMultiUncontrolled {...props} />;
   }

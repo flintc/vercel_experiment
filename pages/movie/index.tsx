@@ -12,18 +12,18 @@ const ResultsComponentFoo: ResultsComponent = ({ searchMultiQuery }) => {
   }
   const results = searchMultiQuery?.data?.pages.map((x) => x.results).flat();
   return (
-    <ul className="space-y-2 max-w-lg m-auto mt-4">
+    <ul className="max-w-lg m-auto mt-4 space-y-2">
       {results?.map((result) => {
         return (
           <li
-            className="rounded p-10 bg-indigo-800 text-white"
+            className="p-10 text-white bg-indigo-800 rounded"
             key={result?.id}
           >
-            {result?.media_type === "movie"
+            {result?.mediaType === "movie"
               ? result.title
-              : result?.media_type === "tv"
+              : result?.mediaType === "tv"
               ? result.name
-              : result?.media_type === "person"
+              : result?.mediaType === "person"
               ? result.name
               : result}
           </li>
@@ -50,13 +50,13 @@ const useRouterState = () => {
 function Home() {
   const router = useRouter();
   console.log("movie index", router.query);
-  const [state, setState] = useRouterState({});
+  const [state, setState] = useRouterState();
   // if (router.query.id) {
   //   return (
   //     <motion.div
   //       layout
   //       layoutId={`movie_${router.query.id}`}
-  //       className="p-10 bg-green-800 rounded fixed left-0 top-0"
+  //       className="fixed top-0 left-0 p-10 bg-green-800 rounded"
   //     >
   //       {/* {query?.data?.title} */}
   //       blah
@@ -78,7 +78,7 @@ function Home() {
             <div
               // layout
               // layoutId={`movie_${router.query.id}`}
-              className="p-10 bg-green-800 rounded fixed left-0 top-0"
+              className="fixed top-0 left-0 p-10 bg-green-800 rounded"
             >
               {/* {query?.data?.title} */}
               blah

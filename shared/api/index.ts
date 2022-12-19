@@ -3,12 +3,13 @@ import {
   GETSearchMulti200Response,
 } from "../../generated/openapi-tmdb";
 import axios from "axios";
-import * as documents from "../../document";
-import { useApolloClient } from "@apollo/client";
 import { DiscoverMovieParams } from "../../pages/api/tmdb/discoverMovie";
 
 // can be used server or client side
-export const searchMulti = async (params) => {
+export const searchMulti = async (params: {
+  search: string;
+  page?: number;
+}) => {
   const out = await axios.request<GETSearchMulti200Response>({
     url: "/api/tmdb/searchMulti",
     params,
@@ -17,7 +18,6 @@ export const searchMulti = async (params) => {
 };
 
 export const discoverMovie = async (params: DiscoverMovieParams) => {
-  console.log("???", params);
   const out = await axios.request<GETMoviePopular200Response>({
     url: "/api/tmdb/discoverMovie",
     params,
@@ -26,28 +26,28 @@ export const discoverMovie = async (params: DiscoverMovieParams) => {
   return out;
 };
 
-export const getUser = async (
-  client: ReturnType<typeof useApolloClient>,
-  options
-) => {
-  return client.query({
-    query: documents.GET_USER,
-    ...options,
-  });
-};
+// export const getUser = async (
+//   client: ReturnType<typeof useApolloClient>,
+//   options
+// ) => {
+//   return client.query({
+//     query: documents.GET_USER,
+//     ...options,
+//   });
+// };
 
-const useGetUser = () => {
-  const client = useApolloClient();
-  const queryFn = async () => {
-    const out = await client.query({
-      query: documents.GET_USER,
-      // options: {},
-      // fetchPolicy: ''
-      variables: {
-        userId: "google-oauth2|103274414933344601378",
-        // userId: 100,
-        // foo: "bar",
-      },
-    });
-  };
-};
+// const useGetUser = () => {
+//   const client = useApolloClient();
+//   const queryFn = async () => {
+//     const out = await client.query({
+//       query: documents.GET_USER,
+//       // options: {},
+//       // fetchPolicy: ''
+//       variables: {
+//         userId: "google-oauth2|103274414933344601378",
+//         // userId: 100,
+//         // foo: "bar",
+//       },
+//     });
+//   };
+// };
